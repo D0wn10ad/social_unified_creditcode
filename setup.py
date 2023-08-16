@@ -57,7 +57,7 @@ params = {
     "author_email": AUTHOR_EMAIL,
     "url": URL,
     "packages": PACKAGES,
-    "data_files": ["succ_utils/address.json"],
+    "package_data": {"succ_utils": ["*.json"]},
     "license": "MIT",
     "install_requires": INSTALL_REQUIRES,
     "tests_require": TESTS_REQUIRE,

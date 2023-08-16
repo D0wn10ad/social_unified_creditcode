@@ -28,7 +28,6 @@ URL = "https://github.com/somenzz/social_unified_creditcode"
 LICENSE = license.read_text(encoding="utf-8")
 PACKAGES = find_packages(exclude=["tests", "test.*"])
 print(PACKAGES)
-DATA_FILES = "[""succ_utils//*.json""]"
 
 INSTALL_REQUIRES = []
 TEST_SUITE = "tests"
@@ -58,7 +57,7 @@ params = {
     "author_email": AUTHOR_EMAIL,
     "url": URL,
     "packages": PACKAGES,
-    "data_files": DATA_FILES,
+    "data_files": ["succ_utils/address.json"],
     "license": "MIT",
     "install_requires": INSTALL_REQUIRES,
     "tests_require": TESTS_REQUIRE,

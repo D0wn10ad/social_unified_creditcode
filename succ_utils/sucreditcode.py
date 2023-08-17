@@ -84,30 +84,19 @@ ORGANIZATION_CHECK_CODE_DICT = {
 class CreditIdentifier(object):
     @staticmethod
     def get_random_address():
-        with open(Path(__file__).parent / "address.json", encoding='utf-8') as reader:
+        with open(Path(__file__).parent / "address.json") as reader:
             address = json.load(reader)
         nums_province = len(address)
-        #需要考虑出现num_city, num_area == 0 的情况
-        #e.g.    {
-        #        "name": "东莞市",
-        #        "code": "441900",
-        #        "child": []
-        #    },
         province = address[random.randint(0, nums_province - 1)]
         nums_city = len(province["child"])
         city = province["child"][random.randint(0, nums_city - 1)]
         areas = city["child"]
         nums_area = len(areas)
-        if nums_area != 0:
-            area = areas[random.randint(0, nums_area - 1)]
-            address_name = f"{province['name']}{city['name']}{area['name']}"
-            address_code = area["code"]
-            return {"name": address_name, "code": address_code}
-        else:
-            address_name = f"{province['name']}{city['name']}"
-            address_code = city["code"]
-            return {"name": address_name, "code": address_code}
-            
+        area = areas[random.randint(0, nums_area - 1)]
+        address_name = f"{province['name']}{city['name']}{area['name']}"
+        address_code = area["code"]
+        return {"name": address_name, "code": address_code}
+
     def CreateC9(self, code):
         # 第i位置上的加权因子
         weighting_factor = [3, 7, 9, 10, 5, 8, 4, 2]

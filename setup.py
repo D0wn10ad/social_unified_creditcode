@@ -47,6 +47,9 @@ CLASSIFIERS = [
 
 LONG_DESCRIPTION = readme
 
+# WIP - *.json is not working for whatever reason -_-
+# https://www.jianshu.com/p/d6cbe27da90c
+# https://packaging.python.org/en/latest/guides/distributing-packages-using-setuptools/#id49
 
 params = {
     "name": NAME,
